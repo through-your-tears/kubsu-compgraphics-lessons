@@ -5,12 +5,12 @@ from OpenGL.GL import *
 from math import cos, sin, pi
 
 
-def getX(r, angle):
-    return r * cos(angle * pi / 180)
+def getX(centre, r, angle):
+    return centre + r * cos(angle * pi / 180)
 
 
-def getY(r, angle):
-    return r * sin(angle * pi / 180)
+def getY(centre, r, angle):
+    return centre + r * sin(angle * pi / 180)
 
 
 def draw_circle(x, y, r):
@@ -20,6 +20,13 @@ def draw_circle(x, y, r):
     for i in range(v):
         a = i / v * pi * 2
         glVertex2d(x + r * cos(a), y + r * sin(a))
+    glEnd()
+
+
+def draw_triangle(vertexes):
+    glBegin(GL_TRIANGLES)
+    for vertex in vertexes:
+        glVertex2d(*vertex)
     glEnd()
 
 
@@ -35,22 +42,19 @@ def show():
         glVertex2d(*vertex)
     glEnd()
     draw_circle(0.1, -0.1, 0.5)
-    '''
-    glBegin(GL_POLYGON)
-    deg1 = 18
-    deg2 = 54
-    rb = 0.5
-    r = 0.2
-    coords = [(0, rb), (getX(r, deg2), getY(r, deg2)), (getX(rb, deg1), getY(rb, deg1)),
-              (getX(r, deg1), -getY(r, deg1)), (getX(rb, deg2), -getY(rb, deg2)), (0, -r),
-              (-getX(rb, deg2), -getY(rb, deg2)),  (-getX(r, deg1), -getY(r, deg1)),
-              (-getX(rb, deg1), getY(rb, deg1)), (-getX(r, deg2), getY(r, deg2))]
-    for coord in coords:
-        glVertex2d(*coord)
-    glEnd()
-    '''
     glColor3f(*green)
     draw_circle(0.2, 0, 0.5)
+    glColor3f(*white)
+    rb = 0.2
+    r = 0.075
+    centre = (0.2, 0.1)
+    for deg in range(0, 360, 72):
+        tr_vertexes = [centre, (getX(centre[0], r, deg), getY(centre[1], r, deg)),
+                       (getX(centre[0], rb, deg + 36), getY(centre[1], rb, deg + 36))]
+        draw_triangle(tr_vertexes)
+        tr_vertexes = [centre, (getX(centre[0], r, deg + 72), getY(centre[1], r, deg + 72)),
+                       (getX(centre[0], rb, deg + 36), getY(centre[1], rb, deg + 36))]
+        draw_triangle(tr_vertexes)
     glutSwapBuffers()
 
 
