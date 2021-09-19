@@ -41,13 +41,13 @@ def show():
     for vertex in quad_vertexes:
         glVertex2d(*vertex)
     glEnd()
-    draw_circle(0.1, -0.1, 0.5)
-    glColor3f(*green)
     draw_circle(0.2, 0, 0.5)
+    glColor3f(*green)
+    draw_circle(0.3, 0.1, 0.5)
     glColor3f(*white)
     rb = 0.2
     r = 0.075
-    centre = (0.2, 0.1)
+    centre = (0.3, 0.2)
     for deg in range(0, 360, 72):
         tr_vertexes = [centre, (getX(centre[0], r, deg), getY(centre[1], r, deg)),
                        (getX(centre[0], rb, deg + 36), getY(centre[1], rb, deg + 36))]
