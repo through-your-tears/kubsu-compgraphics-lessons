@@ -19,6 +19,7 @@ def show():
         vertexes[0][0] += 0.1
         vertexes[1][0] -= 0.1
         delta_height -= 0.1
+        height -= 0.05
         for j in range(2):
             vertexes[j][1] += height
         vertexes[2][1] += delta_height
