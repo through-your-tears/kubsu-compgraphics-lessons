@@ -1,10 +1,15 @@
 from OpenGL.GLUT import *
 from OpenGL.GLE import *
 from OpenGL.GL import *
+from panzer import rotate
 
 
 def show():
-    glBegin()
+    white = (1.0, 1.0, 1.0)
+    glClearColor(*white, 1.0)
+    glClear(GL_COLOR_BUFFER_BIT)
+
+    glutSwapBuffers()
 
 
 def main():
@@ -12,7 +17,8 @@ def main():
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB)
     glutInitWindowSize(700, 700)
     glutInitWindowPosition(50, 50)
-    window = glutCreateWindow("Gusenica")
+    glutCreateWindow("Gusenica")
+    glutSpecialFunc(rotate)
     glutDisplayFunc(show)
     glutIdleFunc(show)
     glutMainLoop()
