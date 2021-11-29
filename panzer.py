@@ -51,13 +51,12 @@ def show():
         draw_quad(quad_vertexes)
         glColor3f(0.0, 0.3, 0.2)
     glColor3f(*black)
-    quad_vertexes = [(0.13, 0.32), (0.13, 0.36), (0.5, 0.35), (0.5, 0.31)]
-    draw_quad(quad_vertexes)
-    glColor3f(0.0, 0.1, 0.1)
-    quad_vertexes = [(0.5, 0.35), (0.5, 0.31), (0.51, 0.32), (0.51, 0.36)]
-    draw_quad(quad_vertexes)
-    quad_vertexes = [(0.13, 0.36), (0.14, 0.37), (0.51, 0.36), (0.5, 0.35)]
-    draw_quad(quad_vertexes)
+    quads_vertexes = [[(0.13, 0.32), (0.13, 0.36), (0.5, 0.35), (0.5, 0.31)],
+                      [(0.5, 0.35), (0.5, 0.31), (0.51, 0.32), (0.51, 0.36)],
+                      [(0.13, 0.36), (0.14, 0.37), (0.51, 0.36), (0.5, 0.35)]]
+    for quad_vertexes in quads_vertexes:
+        draw_quad(quad_vertexes)
+        glColor3f(0.0, 0.1, 0.1)
     glutSwapBuffers()
 
 
