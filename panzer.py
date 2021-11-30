@@ -57,6 +57,7 @@ def show():
     for quad_vertexes in quads_vertexes:
         draw_quad(quad_vertexes)
         glColor3f(0.0, 0.1, 0.1)
+    glFlush()
     glutSwapBuffers()
 
 
@@ -68,6 +69,7 @@ def main():
     glutCreateWindow("Panzer")
     glutDisplayFunc(show)
     glutIdleFunc(show)
+
     glutSpecialFunc(rotate)
     glutMainLoop()
 
