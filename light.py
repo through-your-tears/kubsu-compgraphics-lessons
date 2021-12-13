@@ -30,7 +30,7 @@ def light():
     global ambient
     global lightpos
     ambient = (1.0, 1.0, 1.0, 1)
-    lightpos = [0, 0, 0, 0]
+    lightpos = [0, 0, 1, 0]
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient)
     glEnable(GL_LIGHTING)
     glEnable(GL_LIGHT0)
@@ -45,7 +45,7 @@ def show():
     glClear(GL_COLOR_BUFFER_BIT or GL_DEPTH_BUFFER_BIT)
     glColor3f(*blue)
     glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, blue)
-    draw_sphere(0.5, 50, 50)
+    draw_sphere(0.5, 100, 100)
     glFlush()
     glutSwapBuffers()
 
