@@ -66,10 +66,6 @@ def show():
             move_list[j] += 0.1
     glColor3f(*red)
     glMatrixMode(GL_PROJECTION)
-    # move_list = [-0.01, -0.05, 0]
-    # draw_sphere(0.01, 40, 40, *move_list)
-    # move_list = [-0.05, -0.02, 0]
-    # draw_sphere(0.01, 40, 40, *move_list)
     draw_circle(-0.06, -0.02, 0.01)
     draw_circle(0, -0.06, 0.01)
     glFlush()
